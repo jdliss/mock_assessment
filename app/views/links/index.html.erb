@@ -1,1 +1,16 @@
-<h1>Main page (LINKS) </h1>
+<h1>ThoughtBox</h1>
+
+<%= form_tag '/links' do %>
+  Title: <%= text_field_tag :title %>
+  URL: <%= password_field_tag :url %>
+  <%= submit_tag "Submit" %>
+<% end %>
+
+<ul>
+  <% @links.each do |l| %>
+    <ul>
+      <li><%= l.title %></li>
+      <li><%= link_to l.url, l.url %></li>
+    </ul>
+  <% end %>
+</ul>
