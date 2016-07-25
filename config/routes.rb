@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy", as: :logout
 
   post "/links", to: "links#create"
+
+  post "/links/:id", to: "links#edit", as: :link_status
 end
 

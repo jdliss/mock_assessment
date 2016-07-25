@@ -11,6 +11,9 @@
     <ul>
       <li><a href="<%= l.url %>"><%= l.title %></a></li>
       <li>Read: <%= l.read %></li>
+      <% unless l.read %>
+        <%= button_to "mark as read", link_status_path(l.id) %>
+      <% end %>
     </ul>
     <br />
   <% end %>

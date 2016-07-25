@@ -19,6 +19,12 @@ class LinksController < ApplicationController
     end
   end
 
+  def edit
+    link = Link.find(params[:id])
+    link.update(read: true)
+    redirect_to root_path
+  end
+
 private
 
   def link_params
