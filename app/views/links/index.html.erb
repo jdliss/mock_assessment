@@ -9,11 +9,13 @@
 <ul>
   <% @links.each do |l| %>
     <ul>
-      <li><a href="<%= l.url %>"><%= l.title %></a></li>
-      <li>Read: <%= l.read %></li>
       <% if l.read %>
+        <li><a class="read" href="<%= l.url %>"><%= l.title %></a></li>
+        <li>Read: <%= l.read %></li>
         <%= button_to "mark as unread", mark_unread_path(l.id) %>
       <% else %>
+        <li><a class="unread" href="<%= l.url %>"><%= l.title %></a></li>
+        <li>Read: <%= l.read %></li>
         <%= button_to "mark as read", mark_read_path(l.id) %>
       <% end %>
     </ul>
