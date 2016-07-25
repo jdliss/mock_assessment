@@ -7,9 +7,18 @@
 <% end %>
 
 <br>
-<div class="search">
-  <label>Search: </label>
-  <%= text_field :link, :search %>
+<div>
+  <span class="search">
+    <label>Search: </label>
+    <%= text_field :link, :search %>
+  </span>
+
+  Filter by Status:
+  <select class="filter">
+    <option value="all">All</option>
+    <option value="true">Read</option>
+    <option value="false">Unread</option>
+  </select>
 </div>
 
 <ul class="links">
@@ -26,6 +35,5 @@
       <% end %>
       <%= link_to "edit", edit_link_path(l.id) %>
     </div>
-    <br />
   <% end %>
 </ul>
