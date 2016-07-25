@@ -12,5 +12,8 @@ Rails.application.routes.draw do
 
   post "/read/:id", to: "links#mark_read", as: :mark_read
   post "/unread/:id", to: "links#mark_unread", as: :mark_unread
+
+  get "/links/:id", to: "links#edit", as: :edit_link
+  patch "/links/:id", to: "links#update"
 end
 

@@ -18,6 +18,7 @@
         <li>Read: <%= l.read %></li>
         <%= button_to "mark as read", mark_read_path(l.id) %>
       <% end %>
+      <%= link_to "edit", edit_link_path(l.id) %>
     </ul>
     <br />
   <% end %>
