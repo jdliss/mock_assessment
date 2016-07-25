@@ -6,15 +6,21 @@
   <%= submit_tag "Submit" %>
 <% end %>
 
+<br>
+<div class="search">
+  <label>Search: </label>
+  <%= text_field :link, :search %>
+</div>
+
 <ul class="links">
   <% @links.each do |l| %>
-    <div id="<%= l.id %>">
+    <div id="<%= l.id %>" class="link">
       <% if l.read %>
-        <li><a class="read" href="<%= l.url %>"><%= l.title %></a></li>
+        <li><a class="read title" href="<%= l.url %>"><%= l.title %></a></li>
         <li class="status">Read: <%= l.read %></li>
         <button class="mark-unread" data-id="<%= l.id %>">mark unread</button>
       <% else %>
-        <li><a class="unread" href="<%= l.url %>"><%= l.title %></a></li>
+        <li><a class="unread title" href="<%= l.url %>"><%= l.title %></a></li>
         <li class="status">Read: <%= l.read %></li>
         <button class="mark-read" data-id="<%= l.id %>" >mark read</button>
       <% end %>
