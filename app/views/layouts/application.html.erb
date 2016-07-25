@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MockAssessment</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>MockAssessment</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% if current_user %>
+      <%= link_to "log out", logout_path %>
+    <% else %>%>
+      <%= link_to "log in", login_path %>
+    <% end %>
 
-<%= yield %>
+    <% flash.each do |f| %>
+      <p><%= f[1] %></p>
+    <% end %>
 
-</body>
+    <%= yield %>
+
+  </body>
 </html>

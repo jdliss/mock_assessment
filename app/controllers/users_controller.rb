@@ -7,8 +7,10 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
+      flash[:notice] = "signed up!"
       redirect_to '/'
     else
+      flash[:error] = "invalid sign up"
       redirect_to '/signup'
     end
   end
