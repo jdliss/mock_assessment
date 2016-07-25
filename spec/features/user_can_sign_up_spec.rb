@@ -6,10 +6,10 @@ feature 'user can sign up' do
 
     expect(User.count).to eq 0
 
-    save_and_open_page
-    fill_in "email", with: "test@test.com"
-    fill_in "password", with: "password"
-    fill_in "password_confirmation", with: "password"
+    fill_in "user[email]", with: "test@test.com"
+    fill_in "user[password]", with: "password"
+    fill_in "user[password_confirmation]", with: "password"
+    click_on "Submit"
 
     expect(current_path).to eq "/"
     expect(User.count).to eq 1
