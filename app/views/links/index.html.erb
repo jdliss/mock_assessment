@@ -13,12 +13,18 @@
     <%= text_field :link, :search %>
   </span>
 
+  <span>
   Filter by Status:
   <select class="filter">
     <option value="all">All</option>
     <option value="true">Read</option>
     <option value="false">Unread</option>
   </select>
+  </span>
+
+  <span>
+    <button id="alphabetic-filter">Filter Alphatically</button>
+  </span>
 </div>
 
 <ul class="links">
