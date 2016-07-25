@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
   def index
     if current_user
-      @links = current_user.links
+      @links = current_user.links.order('created_at DESC')
     else
       redirect_to login_path
     end
@@ -32,18 +32,6 @@ class LinksController < ApplicationController
       flash[:error] = "invalid link"
       redirect_to root_path
     end
-  end
-
-  def mark_read
-    link = Link.find(params[:id])
-    link.update(read: true)
-    redirect_to root_path
-  end
-
-  def mark_unread
-    link = Link.find(params[:id])
-    link.update(read: false)
-    redirect_to root_path
   end
 
 private

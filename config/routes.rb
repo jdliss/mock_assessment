@@ -10,10 +10,10 @@ Rails.application.routes.draw do
 
   post "/links", to: "links#create"
 
-  post "/read/:id", to: "links#mark_read", as: :mark_read
-  post "/unread/:id", to: "links#mark_unread", as: :mark_unread
-
   get "/links/:id", to: "links#edit", as: :edit_link
   patch "/links/:id", to: "links#update"
+
+  patch "/api/v1/reads", to: "api/v1/reads#create", as: :mark_read
+  patch "/api/v1/unreads", to: "api/v1/unreads#create", as: :mark_unread
 end
 

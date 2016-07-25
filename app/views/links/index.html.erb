@@ -6,20 +6,40 @@
   <%= submit_tag "Submit" %>
 <% end %>
 
-<ul>
+<br>
+<div>
+  <span class="search">
+    <label>Search: </label>
+    <%= text_field :link, :search %>
+  </span>
+
+  <span>
+  Filter by Status:
+  <select class="filter">
+    <option value="all">All</option>
+    <option value="true">Read</option>
+    <option value="false">Unread</option>
+  </select>
+  </span>
+
+  <span>
+    <button id="alphabetic-filter">Filter Alphatically</button>
+  </span>
+</div>
+
+<ul class="links">
   <% @links.each do |l| %>
-    <ul>
+    <div id="<%= l.id %>" class="link">
       <% if l.read %>
-        <li><a class="read" href="<%= l.url %>"><%= l.title %></a></li>
-        <li>Read: <%= l.read %></li>
-        <%= button_to "mark as unread", mark_unread_path(l.id) %>
+        <li><a class="read title" href="<%= l.url %>"><%= l.title %></a></li>
+        <li class="status">Read: <%= l.read %></li>
+        <button class="mark-unread" data-id="<%= l.id %>">mark unread</button>
       <% else %>
-        <li><a class="unread" href="<%= l.url %>"><%= l.title %></a></li>
-        <li>Read: <%= l.read %></li>
-        <%= button_to "mark as read", mark_read_path(l.id) %>
+        <li><a class="unread title" href="<%= l.url %>"><%= l.title %></a></li>
+        <li class="status">Read: <%= l.read %></li>
+        <button class="mark-read" data-id="<%= l.id %>" >mark read</button>
       <% end %>
       <%= link_to "edit", edit_link_path(l.id) %>
-    </ul>
-    <br />
+    </div>
   <% end %>
 </ul>
