@@ -19,9 +19,15 @@ class LinksController < ApplicationController
     end
   end
 
-  def edit
+  def mark_read
     link = Link.find(params[:id])
     link.update(read: true)
+    redirect_to root_path
+  end
+
+  def mark_unread
+    link = Link.find(params[:id])
+    link.update(read: false)
     redirect_to root_path
   end
 

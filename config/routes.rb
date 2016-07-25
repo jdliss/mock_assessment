@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   post "/links", to: "links#create"
 
-  post "/links/:id", to: "links#edit", as: :link_status
+  post "/read/:id", to: "links#mark_read", as: :mark_read
+  post "/unread/:id", to: "links#mark_unread", as: :mark_unread
 end
 
