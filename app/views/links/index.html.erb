@@ -10,6 +10,7 @@
   <% @links.each do |l| %>
     <ul>
       <li><a href="<%= l.url %>"><%= l.title %></a></li>
+      <li>Read: <%= l.read %></li>
     </ul>
     <br />
   <% end %>
