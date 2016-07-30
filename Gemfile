@@ -17,7 +17,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'shoulda'
+  gem 'shoulda-matchers'
 end
 
 group :development do
